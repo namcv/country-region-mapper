@@ -181,7 +181,7 @@ var countries = [
     "region": "Africa"
   },
   {
-    "code": "US",
+    "code": "SH",
     "name": "Saint Helena",
     "region": "Africa"
   },
@@ -836,7 +836,7 @@ var countries = [
     "region": "Europe"
   },
   {
-    "code": "US",
+    "code": "GE",
     "name": "Georgia",
     "region": "Europe"
   },
@@ -1009,17 +1009,16 @@ var countries = [
 
 var countriesMap = countries.reduce((obj, country) => {
     obj[country.code] = {
-    	name: country.name,
-    	region: country.region,
+      name: country.name,
+      region: country.region,
     };
     return obj;
 }, Object.create({}));
 
-
 module.exports = {
-   	getRegion: function(code) {
-   		var countryCode = code.toUpperCase();
-   		if(!countriesMap[countryCode]) return null;
-   		return countriesMap[countryCode].region
-   	}
+    getRegion: function(code) {
+      var countryCode = code.toUpperCase();
+      if(!countriesMap[countryCode]) return null;
+      return countriesMap[countryCode].region
+    }
 };
