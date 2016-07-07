@@ -1,0 +1,24 @@
+{
+  "name": "namcv",
+  "version": "1.0.0",
+  "description": "country region mapper",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/namcv/country-region-mapper.git"
+  },
+  "keywords": [
+    "region",
+    "country",
+    "mapper"
+  ],
+  "author": "NamCV",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/namcv/country-region-mapper/issues"
+  },
+  "homepage": "https://github.com/namcv/country-region-mapper#readme"
+}
