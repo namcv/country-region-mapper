@@ -1,5 +1,5 @@
 {
-  "name": "country region mapper",
+  "name": "country-region-mapper",
   "version": "1.0.0",
   "description": "country region mapper",
   "main": "index.js",
