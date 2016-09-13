@@ -217,7 +217,7 @@ var countries = [
     "region_slug": "africa"
   },
   {
-    "code": "US",
+    "code": "SH",
     "name": "Saint Helena",
     "region": "Africa",
     "region_slug": "africa"
@@ -1003,7 +1003,7 @@ var countries = [
     "region_slug": "europe"
   },
   {
-    "code": "US",
+    "code": "GE",
     "name": "Georgia",
     "region": "Europe",
     "region_slug": "europe"
@@ -1215,7 +1215,6 @@ var countriesMap = countries.reduce((obj, country) => {
     };
     return obj;
 }, Object.create({}));
-
 
 module.exports = {
     getRegion: function(code) {
