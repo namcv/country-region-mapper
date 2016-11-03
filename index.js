@@ -529,27 +529,44 @@ var countriesMap = countries.reduce((obj, country) => {
     return obj;
 }, Object.create({}));
 
+
 module.exports = {
-    getRegion: function(code) {
-      var countryCode = code.toUpperCase();
-      if(!countriesMap[countryCode]) return null;
-      return countriesMap[countryCode].region
-    },
-    getRegionList: function() {
-      var regionSet = new Set();
+  getCountries: function() {
+    return countriesMap
+  },
+  getCountriesByRegion: function() {
+    var regionList = ['americas', 'africa', 'asia_pacific', 'europe'];
+    var regionMap = {};
+    regionList.map(region => {
+      regionMap[region] = [];
       countries.map(country => {
-        regionSet.add(country.region_slug)
-      });
-      var regionList = Array.from(regionSet);
-      return regionList
-    },
-    getCurrency: function(code) {
-      var countryCode = code.toUpperCase();
-      if(!countriesMap[countryCode]) return null;
-      return {
-        currency_code: countriesMap[countryCode].currency_code,
-        currency_symbol: countriesMap[countryCode].currency_symbol,
-        currency_name: countriesMap[countryCode].currency_name
-      }
+        if(region === country.region_slug) {
+          regionMap[region].push(country)
+        }
+      })
+    })
+    return regionMap;
+  },
+  getRegion: function(code) {
+    var countryCode = code.toUpperCase();
+    if(!countriesMap[countryCode]) return null;
+    return countriesMap[countryCode].region
+  },
+  getRegionList: function() {
+    var regionSet = new Set();
+    countries.map(country => {
+      regionSet.add(country.region_slug)
+    });
+    var regionList = Array.from(regionSet);
+    return regionList
+  },
+  getCurrency: function(code) {
+    var countryCode = code.toUpperCase();
+    if(!countriesMap[countryCode]) return null;
+    return {
+      currency_code: countriesMap[countryCode].currency_code,
+      currency_symbol: countriesMap[countryCode].currency_symbol,
+      currency_name: countriesMap[countryCode].currency_name
     }
+  }
 };
