@@ -525,6 +525,10 @@ var countriesMap = countries.reduce((obj, country) => {
     obj[country.code] = {
       name: country.name,
       region: country.region,
+      region_slug: country.region_slug,
+      currency_code: country.currency_code,
+      currency_symbol: country.currency_symbol,
+      currency_name: country.currency_name
     };
     return obj;
 }, Object.create({}));
