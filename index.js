@@ -521,26 +521,10 @@ var countries = [
     "currency_name": "Japanese Yen"
   }
 ]
-var countriesMap = countries.reduce((obj, country) => {
+var countriesMap = countries.reduce(function(obj, country) {
     obj[country.code] = {
       name: country.name,
       region: country.region,
-      region_slug: country.region_slug,
-      currency_code: country.currency_code,
-      currency_symbol: country.currency_symbol,
-      currency_name: country.currency_name
-    };
-    return obj;
-}, Object.create({}));
-
-var currencyMap = countries.reduce((obj, country) => {
-    obj[country.currency_code] = {
-      name: country.name,
-      region: country.region,
-      region_slug: country.region_slug,
-      currency_code: country.currency_code,
-      currency_symbol: country.currency_symbol,
-      currency_name: country.currency_name
     };
     return obj;
 }, Object.create({}));
@@ -553,9 +537,9 @@ module.exports = {
   getCountriesByRegion: function() {
     var regionList = ['americas', 'africa', 'asia_pacific', 'europe'];
     var regionMap = {};
-    regionList.map(region => {
+    regionList.map(function(region) {
       regionMap[region] = [];
-      countries.map(country => {
+      countries.map(function(country) {
         if(region === country.region_slug) {
           regionMap[region].push(country)
         }
@@ -570,7 +554,7 @@ module.exports = {
   },
   getRegionList: function() {
     var regionSet = new Set();
-    countries.map(country => {
+    countries.map(function(country) {
       regionSet.add(country.region_slug)
     });
     var regionList = Array.from(regionSet);
@@ -583,15 +567,6 @@ module.exports = {
       currency_code: countriesMap[countryCode].currency_code,
       currency_symbol: countriesMap[countryCode].currency_symbol,
       currency_name: countriesMap[countryCode].currency_name
-    }
-  },
-  getCurrencyInfo: function(code) {
-    var currencyCode = code.toUpperCase();
-    if(!currencyMap[currencyCode]) return null;
-    return {
-      currency_code: currencyMap[currencyCode].currency_code,
-      currency_symbol: currencyMap[currencyCode].currency_symbol,
-      currency_name: currencyMap[currencyCode].currency_name
     }
   }
 };
