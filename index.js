@@ -525,6 +525,22 @@ var countriesMap = countries.reduce(function(obj, country) {
     obj[country.code] = {
       name: country.name,
       region: country.region,
+      region_slug: country.region_slug,
+      currency_code: country.currency_code,
+      currency_symbol: country.currency_symbol,
+      currency_name: country.currency_name
+    };
+    return obj;
+}, Object.create({}));
+
+var currencyMap = countries.reduce(function(obj, country) {
+    obj[country.currency_code] = {
+      name: country.name,
+      region: country.region,
+      region_slug: country.region_slug,
+      currency_code: country.currency_code,
+      currency_symbol: country.currency_symbol,
+      currency_name: country.currency_name
     };
     return obj;
 }, Object.create({}));
@@ -567,6 +583,15 @@ module.exports = {
       currency_code: countriesMap[countryCode].currency_code,
       currency_symbol: countriesMap[countryCode].currency_symbol,
       currency_name: countriesMap[countryCode].currency_name
+    }
+  },
+  getCurrencyInfo: function(code) {
+    var currencyCode = code.toUpperCase();
+    if(!currencyMap[currencyCode]) return null;
+    return {
+      currency_code: currencyMap[currencyCode].currency_code,
+      currency_symbol: currencyMap[currencyCode].currency_symbol,
+      currency_name: currencyMap[currencyCode].currency_name
     }
   }
 };
