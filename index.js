@@ -519,6 +519,15 @@ var countries = [
     "currency_code": "JPY",
     "currency_symbol": "¥",
     "currency_name": "Japanese Yen"
+  },
+  {
+    "code": "VN",
+    "name": "Vietnam",
+    "region": "Asia Pacific",
+    "region_slug": "asia_pacific",
+    "currency_code": "VND",
+    "currency_symbol": "₫",
+    "currency_name": "Vietnamese Dong"
   }
 ]
 var countriesMap = countries.reduce(function(obj, country) {
