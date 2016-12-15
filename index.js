@@ -575,7 +575,7 @@ module.exports = {
   getRegion: function(code) {
     var countryCode = code.toUpperCase();
     if(!countriesMap[countryCode]) return null;
-    return countriesMap[countryCode].region
+    return countriesMap[countryCode].region_slug
   },
   getRegionList: function() {
     var regionSet = new Set();
